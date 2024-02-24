@@ -15,6 +15,7 @@ const SideNavigation = () => {
   const location = useLocation();
 
   useEffect(() => {
+    console.log("userRole", userRole);
     if (userRole) {
       setIsReady(true);
       setLoading(false);

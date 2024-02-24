@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { Box, Flex, useMediaQuery } from '@chakra-ui/react';
 import { Route, Routes, Navigate } from 'react-router-dom';
+import { Box, Flex, useMediaQuery } from '@chakra-ui/react';
 import SideNavigation from '../components/SideNavigation/SideNavigation';
 import Header from '../components/Header/Header';
 import DashboardComponent from '../components/Dashboard/Dashboard';
@@ -23,35 +23,23 @@ const DashboardLayout = () => {
         <SideNavigation />
         <Box flex="1" p={4}>
           <Routes>
-            <Route exact path="/dashboard" element={<DashboardComponent />} />
-            <Route exact path="/members" element={<MembersComponent />} />
-            <Route exact path="/edit-profile" element={<Profile />} />
+            <Route path="/dashboard" element={<DashboardComponent />} />
+            <Route path="/members" element={<MembersComponent />} />
+            <Route path="/edit-profile" element={<Profile />} />
             {userRole === 'Admin' ? (
-              <>
-                <Route exact path="/member-manage" element={<MemberManagement />} />
-              </>
+              <Route path="/member-manage" element={<MemberManagement />} />
             ) : (
-              <>
-                <Route path="/member-manage" element={<Navigate to="/app/dashboard" />} />
-              </>
+              <Route path="/member-manage" element={<Navigate to="/dashboard" />} />
             )}
             {userRole === 'Admin' ? (
-              <>
-                <Route exact path="/role-setting" element={<RoleSetting />} />
-              </>
+              <Route path="/role-setting" element={<RoleSetting />} />
             ) : (
-              <>
-                <Route path="/role-setting" element={<Navigate to="/app/dashboard" />} />
-              </>
+              <Route path="/role-setting" element={<Navigate to="/dashboard" />} />
             )}
             {userRole === 'Admin' ? (
-              <>
-                <Route exact path="/set-duration" element={<DurationComponent />} />
-              </>
+              <Route path="/set-duration" element={<DurationComponent />} />
             ) : (
-              <>
-                <Route path="/set-duration" element={<Navigate to="/app/dashboard" />} />
-              </>
+              <Route path="/set-duration" element={<Navigate to="/dashboard" />} />
             )}
           </Routes>
         </Box>
