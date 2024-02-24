@@ -278,7 +278,7 @@ const MembersInfo = () => {
           )}
         </Td>
         <Td>
-          {!payeeUser || (member.id !== payeeUser.id) && (
+        {(!payeeUser || member.id !== payeeUser.id) && (
             <IconButton
               colorScheme="blue"
               aria-label="Upload Payment"
@@ -287,7 +287,7 @@ const MembersInfo = () => {
             />
           )}
         </Td>
-        {payeeUser?.id === user.uid && (
+        {(payeeUser?.id === user.uid) &&  (
           <Td>
             <IconButton
               colorScheme="blue"
