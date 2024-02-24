@@ -20,10 +20,9 @@ const AppRouter = () => {
   };
 
   return (
-
-    <Router>
+    <Router basename="/committe-management"> {/* Set the basename here */}
       <Routes>
-      <Route  path="/" element={ <LandingPage /> } />
+        <Route  path="/" element={ <LandingPage /> } />
         <Route path="/admin" element={<PrivateRoute element={<AdminPanel />} authenticated={user !== null} />} />
         <Route
           path="/app/*"
@@ -31,10 +30,8 @@ const AppRouter = () => {
         />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-    
       </Routes>
     </Router>
-
   );
 };
 
