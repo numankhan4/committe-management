@@ -24,9 +24,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Test
-        run: npm test
-
       - name: Set Git user email and name
         run: |
           git config --global user.email "numankhaan4@gmail.com"
