@@ -1,5 +1,6 @@
 {
   "name": "committee-management-app",
+  "homepage": "https://numankhan4.github.io/committe-management/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -28,6 +29,7 @@
     "start": "react-scripts start",
     "lint": "eslint . --quiet",
     "build": "npm run lint && react-scripts build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -27,6 +27,7 @@ jobs:
     - name: Test
       run: npm test
 
-    - name: Deploy
+    - name: Deploy to GitHub Pages
       run: |
-        # Add your deployment commands here
+        npm install -g gh-pages
+        npx gh-pages -d build -b main
