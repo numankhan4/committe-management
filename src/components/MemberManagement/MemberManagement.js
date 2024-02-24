@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect ,useCallback} from 'react';
 import {
   Box,
   Text,
@@ -25,11 +25,7 @@ const MemberManagement = () => {
   const [userData, setUserData] = useState({});
   const toast = useToast();
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       setLoading(true);
       const usersCollection = collection(firestore, 'users');
@@ -51,7 +47,11 @@ const MemberManagement = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [toast]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const handleEdit = (userId) => {
     setEditingUserId(userId);

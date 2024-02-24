@@ -19,7 +19,7 @@ const SideNavigation = () => {
       setIsReady(true);
       setLoading(false);
     }
-  }, [userRole]);
+  }, [userRole, setLoading]);
 
   if (!isReady) {
     setLoading(true);

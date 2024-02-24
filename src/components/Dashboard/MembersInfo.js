@@ -167,18 +167,18 @@ const MembersInfo = () => {
       const payeeUserDocRef = doc(firestore, 'users', payeeUser?.id);
       const payeeUserDocSnapshot = await getDoc(payeeUserDocRef);
       const payeeUserPayment = payeeUserDocSnapshot.data().payment || {};
-
+  
       const memberDocRef = doc(firestore, 'users', member.id);
       const memberDocSnapshot = await getDoc(memberDocRef);
       const memberPayment = memberDocSnapshot.data().payment || {};
       const memberPaymentStatus = memberPayment.status || 'N/A';
-
+  
       const confirmation = window.confirm(`Do you want to verify payment status as '${memberPaymentStatus}' for ${member.name}?`);
       if (confirmation) {
         const updatedPaymentStatus = window.prompt(`Enter the new payment status for ${member.name} (yes/no):`);
-        const statusValue= updatedPaymentStatus.trim() === 'yes' ? 'verified' : 'not verified';
+        const statusValue = (updatedPaymentStatus.trim() === 'yes') ? 'verified' : 'not verified'; // Added parentheses here
+  
         if (updatedPaymentStatus && ['yes', 'no'].includes(updatedPaymentStatus.trim())) {
-
           const updatedpayeeUserPayment = {
             ...payeeUserPayment,
             [member.id]: {
@@ -186,20 +186,20 @@ const MembersInfo = () => {
               status: statusValue,
             },
           };
-
+  
           await updateDoc(payeeUserDocRef, {
             payment: updatedpayeeUserPayment,
           });
-
+  
           const updatedMemberPayment = {
             ...memberPayment,
             status: statusValue,
           };
-
+  
           await updateDoc(memberDocRef, {
             payment: updatedMemberPayment,
           });
-
+  
           toast({
             title: 'Payment Status Updated',
             description: `Payment status updated for ${member.name}: ${updatedPaymentStatus}`,
@@ -228,6 +228,7 @@ const MembersInfo = () => {
       });
     }
   };
+  
 
   return (
     <Box p={4} overflowX="auto"> {/* Add overflowX="auto" to enable horizontal scrolling */}
