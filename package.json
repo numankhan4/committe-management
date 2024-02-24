@@ -26,7 +26,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "lint": "eslint . --quiet",
+    "build": "npm run lint && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
