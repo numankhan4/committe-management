@@ -30,7 +30,7 @@ import {
   Badge
 } from '@chakra-ui/react';
 import { collection, getDocs, doc, updateDoc, getDoc } from 'firebase/firestore';
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
+import {  ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { firestore, storage } from '../../firebase';
 import { AttachmentIcon, CheckCircleIcon } from '@chakra-ui/icons';
 import { AuthContext } from '../../context/UserContext';

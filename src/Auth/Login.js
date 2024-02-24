@@ -26,7 +26,7 @@ import {
 import signInImage from "./../assets/images/signInImage.jpg";
 
 function Login() {
-  const [user, setUser] = useState(null);
+  const [ setUser] = useState(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
@@ -66,39 +66,7 @@ function Login() {
   };
 
 
-  const handleGoogleSignIn = () => {
-    signInWithPopup(auth, googleProvider)
-      .then(result => {
-        const loggedInUser = result.user;
-        setUser(loggedInUser);
-      })
-      .catch(error => {
-        setError(error.message);
-      })
-  }
-
-  const handleGithubSignIn = () => {
-    signInWithPopup(auth, githubProvider)
-      .then(result => {
-        const loggedInUser = result.user;
-        setUser(loggedInUser);
-      })
-      .catch(error => {
-        setError(error.message);
-      })
-  }
-
-  const handleSignOut = () => {
-    signOut(auth)
-      .then(result => {
-        setUser(null);
-        setSuccess('Sign out successful!');
-      })
-      .catch(error => {
-        setError(error.message);
-      })
-  }
-
+ 
   // Chakra color mode
   const titleColor = useColorModeValue("teal.300", "teal.200");
   const textColor = useColorModeValue("gray.400", "white");

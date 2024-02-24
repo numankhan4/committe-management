@@ -6,8 +6,6 @@ import {
   Flex,
   FormControl,
   FormLabel,
-  HStack,
-  Icon,
   Input,
   Link,
   Switch,
@@ -49,22 +47,11 @@ function Register() {
     }
   };
 
-  const handleGoogleSignIn = () => {
-    signInWithGoogle()
-      .then(result => {
-        const user = result.user;
-        console.log(user);
-      })
-      .catch(error => {
-        setError(error.message);
-        console.error(error);
-      });
-  };
+ 
 
   const titleColor = useColorModeValue("teal.300", "teal.200");
   const textColor = useColorModeValue("gray.700", "white");
   const bgColor = useColorModeValue("white", "gray.700");
-  const bgIcons = useColorModeValue("teal.200", "rgba(255, 255, 255, 0.5)");
   return (
     <Flex
       direction='column'

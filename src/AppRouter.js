@@ -2,13 +2,11 @@
 import React, { useContext } from 'react';
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
 import AdminPanel from './components/AdminPanel';
-import Dashboard from './pages/Dashboard';
 import Login from './Auth/Login'; // Import your Login component
 import Register from './Auth/Register'; // Import your Register component
 import { AuthContext } from './context/UserContext';
 import LandingPage from './pages/LandingPage';
 import DashboardLayout from './layouts/DashboardLayout';
-import { PageLoadingProvider } from './context/PageLoadingContext';
 
 const AppRouter = () => {
   const { user } = useContext(AuthContext);

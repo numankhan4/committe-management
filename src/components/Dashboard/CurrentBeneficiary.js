@@ -9,10 +9,8 @@ import {
 } from '@chakra-ui/react';
 import { collection, doc, getDocs, updateDoc } from 'firebase/firestore';
 import { firestore } from '../../firebase';
-import { AuthContext } from '../../context/UserContext';
 
 const CurrentBeneficiary = () => {
-  const { userRole } = useContext(AuthContext);
   const [currentBeneficiary, setCurrentBeneficiary] = useState(null);
   const toast = useToast();
 

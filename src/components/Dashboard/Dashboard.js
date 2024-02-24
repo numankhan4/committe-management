@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { firestore } from '../../firebase';
-import MembersInfo from './MembersInfo';
 import RemainingAmountChart from './charts/RemainingAmountChart';
 import PaymentStatusChart from './charts/PaymentStatusChart';
 import PaidUnpaidUserList from './PaidUnpaidUserList';
-import { Box, Heading, Flex, useBreakpointValue } from '@chakra-ui/react';
+import { Box, Flex, useBreakpointValue } from '@chakra-ui/react';
 import CurrentBeneficiary from './CurrentBeneficiary';
 
 const DashboardComponent = () => {
